@@ -48,7 +48,7 @@ canvas = Canvas(window, width=300, height=300)
 canvas.pack(pady=(20, 0))
 
 
-new_img = Image.open("D:/Projects/PyCharmProjects/MusicPlayer/placeholder.png")
+new_img = Image.open(r"Assets\placeholder.png")
 new_img = new_img.resize((300, 300), Image.LANCZOS)
 new_img = ImageTk.PhotoImage(new_img)
 image_container = canvas.create_image(150, 150, anchor=CENTER, image=new_img)
@@ -78,7 +78,7 @@ def albumart(audiofile):
         metadata.pictures[0].data
     except IndexError:
         print("No Image Found.")
-        new_img = Image.open("D:/Projects/PyCharmProjects/MusicPlayer/placeholder.png")
+        new_img = Image.open(r"Assets\placeholder.png")
         new_img = new_img.resize((300, 300), Image.LANCZOS)
         new_img = ImageTk.PhotoImage(new_img)
     else:
@@ -134,7 +134,7 @@ def issongpaused(is_paused):
             paused = False
             songstatus.set("Resuming")
             pausephoto = ImageTk.PhotoImage(
-                Image.open("D:\Projects\PyCharmProjects\MusicPlayer\pause.png")
+                Image.open(r"Assets\pause.png")
             )
         else:
             songstatus.set("Paused")
@@ -227,12 +227,12 @@ controls_frame = Frame(window, bg="#292B59")
 controls_frame.pack(pady=(None))
 
 
-# playbtnimg = Image.open('D:/Projects/PyCharmProjects/MusicPlayer/playbuttonarrowhead.png')
+# playbtnimg = Image.open(r'Assets\playbuttonarrowhead.png')
 # newimg1 = playbtnimg.resize((20,20), Image.ANTIALIAS)
 # newimg1 = ImageTk.PhotoImage(newimg1)
 # playbtn=Button(window,height=30,width=50,bg='white',image=newimg1,command=playsong)
 
-pauseplaybtnimg = Image.open("D:\Projects\PyCharmProjects\MusicPlayer\play.png")
+pauseplaybtnimg = Image.open(r"Assets\play.png")
 newimg2 = pauseplaybtnimg.resize((60, 60), Image.ANTIALIAS)
 newimg2 = ImageTk.PhotoImage(newimg2)
 pauseplaybtn = Button(
@@ -245,7 +245,7 @@ pauseplaybtn = Button(
     command=lambda: issongpaused(paused),
 )
 
-# stopbtnimg = Image.open("D:/Projects/PyCharmProjects/MusicPlayer/black-square.png")
+# stopbtnimg = Image.open(r"Assets\black-square.png")
 # newimg3 = stopbtnimg.resize((20, 20), Image.ANTIALIAS)
 # newimg3 = ImageTk.PhotoImage(newimg3)
 # stopbtn = Button(
@@ -258,7 +258,7 @@ pauseplaybtn = Button(
 #     command=stopsong,
 # )
 
-nextbtnimg = Image.open("D:\Projects\PyCharmProjects\MusicPlayer/nextpng.png")
+nextbtnimg = Image.open(r"Assets\nextpng.png")
 newimg4 = nextbtnimg.resize((20, 30), Image.ANTIALIAS)
 newimg4 = ImageTk.PhotoImage(newimg4)
 nextbtn = Button(
@@ -271,7 +271,7 @@ nextbtn = Button(
     command=nextsong,
 )
 
-prevbtnimg = Image.open("D:\Projects\PyCharmProjects\MusicPlayer/prevpng.png")
+prevbtnimg = Image.open(r"Assets\prevpng.png")
 newimg5 = prevbtnimg.resize((20, 30), Image.ANTIALIAS)
 newimg5 = ImageTk.PhotoImage(newimg5)
 prevbtn = Button(
@@ -302,7 +302,7 @@ scrollbarplaylist = Scrollbar(playlistframe, orient="vertical", borderwidth=0)
 scrollbarplaylist.config(command=playlist.yview)
 scrollbarplaylist.pack(side="right", fill="y")
 playlist.config(yscrollcommand=scrollbarplaylist.set)
-os.chdir(r"D:/Projects/PyCharmProjects/MusicPlayer/Songs")
+os.chdir(r"Assets\Songs")
 songs = os.listdir()
 for s in songs:
     playlist.insert(END, s)
